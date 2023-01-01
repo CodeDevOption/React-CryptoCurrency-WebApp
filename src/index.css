@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply p-0 m-0 box-border;
+    }
+}
+:root {
+    --color-toggle-dark:rgb(250, 246, 0);
+    --color-toggle-light:rgb(250, 204, 79);
+}
+
+::-webkit-scrollbar{
+    width:9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: darkgray;
+}
