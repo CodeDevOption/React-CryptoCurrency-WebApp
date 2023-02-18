@@ -1,15 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { coinpaprikaApi } from "../services/coinpaprikaApi";
 import { cryptoApi } from "../services/cryptoApi";
-
+import { cryptoNewsApi } from "../services/cryptoNewsApi";
+import menuReducer from "./reducers/menuButton";
 export const store = configureStore({
   reducer: {
-    [coinpaprikaApi.reducerPath]: coinpaprikaApi.reducer,
+    menu: menuReducer,
     [cryptoApi.reducerPath]: cryptoApi.reducer,
+    [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      coinpaprikaApi.middleware,
-      cryptoApi.middleware
+      cryptoApi.middleware,
+      cryptoNewsApi.middleware
     ),
 });

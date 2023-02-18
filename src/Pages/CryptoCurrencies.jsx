@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { CryptoCurrency } from "../Components";
-import { data } from "../constants/data";
+import { useGetCryptoQuery } from "../services/cryptoApi";
 
 const CryptoCurrencies = () => {
   const [cryptos, setCryptos] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); 
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const { data } = useGetCryptoQuery();
   useEffect(() => {
-    const filteredData = data.coins.filter((coin) =>
+    const filteredData = data?.data?.coins.filter((coin) =>
       coin.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log(filteredData);

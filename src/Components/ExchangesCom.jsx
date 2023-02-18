@@ -1,36 +1,32 @@
 import millify from "millify";
 import React from "react";
-import { Link } from "react-router-dom";
-
-const CryptoCurrency = ({ currency }) => {
+const ExchangesCom = ({exchanges}) => {
   return (
-    <Link
-      to={`/crypto/${currency?.uuid}`}
+    <a
+      href={exchanges?.exchangeUrl}
       className="w-full sm:w-[49%] md:w-[24%] p-5 hover:shadow-md cursor-pointer bg-white dark:bg-secondary-dark-bg rounded-md"
     >
-      <div className="flex justify-between items-center">
+      <div className="flex gap-4 items-center">
         <h1 className="text-lg font-semibold dark:text-gray-100 text-dark-900 ">
-          {currency?.rank}.{currency.name}
+          {exchanges?.rank}
         </h1>
-        <img
-          src={currency?.iconUrl}
-          className="w-10 h-10 rounded-full"
-          alt="Crypto Image"
-        />
+        <h1 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+          {exchanges?.name}
+        </h1>
       </div>
       <div className="flex flex-col gap-3 items-start my-5">
         <h1 className="text-sm dark:text-gray-200 text-gray-600">
-          Price:{millify(currency?.price)}
+          Percent Total Volume: {millify(exchanges?.percentTotalVolume)}
         </h1>
         <h1 className="text-sm dark:text-gray-200 text-gray-600">
-          Market Cap:{millify(currency?.marketCap)}
+          Volume Usd: {millify(exchanges?.volumeUsd)}
         </h1>
         <h1 className="text-sm dark:text-gray-200 text-gray-600">
-          Daily Change:{millify(currency?.change)}
+          Trading Pairs: {millify(exchanges?.tradingPairs)}
         </h1>
       </div>
-    </Link>
+    </a>
   );
 };
 
-export default CryptoCurrency;
+export default ExchangesCom;

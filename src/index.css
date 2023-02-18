@@ -7,6 +7,14 @@
         @apply p-0 m-0 box-border;
     }
 }
+@layer utilities{
+    .cryptoDesc > h3{
+        @apply text-lg font-semibold text-gray-900 dark:text-gray-100 mt-3;
+    }
+    .cryptoDesc > p{
+        @apply text-sm font-semibold text-gray-900 dark:text-gray-100 mt-3;
+    }
+}
 :root {
     --color-toggle-dark:rgb(250, 246, 0);
     --color-toggle-light:rgb(250, 204, 79);
@@ -19,4 +27,7 @@
 
 ::-webkit-scrollbar-thumb{
     background-color: darkgray;
+}
+.cryptoDesc > h3{
+
 }
